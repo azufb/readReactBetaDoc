@@ -16,19 +16,19 @@ const StateHooks = () => {
         age: 24
     });
 
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeInputFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputName(e.target.value);
     }
 
-    const handleSetName = () => {
+    const handleSetNameFunc = () => {
         setName(inputName);
     };
 
-    const increment = () => {
+    const incrementFunc = () => {
         setAge(currentAge => currentAge + 1);
     };
 
-    const decrement = () => {
+    const decrementFunc = () => {
         setAge(currentAge => currentAge - 1);
     };
 
@@ -56,8 +56,8 @@ const StateHooks = () => {
                     <span>{name}</span>
 
                     <div>
-                        <input type='text' value={inputName} onChange={(e: any) => onChangeInput(e)} />
-                        <button onClick={handleSetName}>送信</button>
+                        <input type='text' value={inputName} onChange={(e: any) => onChangeInputFunc(e)} />
+                        <button onClick={handleSetNameFunc}>送信</button>
                     </div>
                 </div>
 
@@ -66,8 +66,8 @@ const StateHooks = () => {
                     <span>{age}</span>
 
                     <div>
-                        <button onClick={increment}>1歳足す</button>
-                        <button onClick={decrement}>1歳引く</button>
+                        <button onClick={incrementFunc}>1歳足す</button>
+                        <button onClick={decrementFunc}>1歳引く</button>
                     </div>
                 </div>
 
