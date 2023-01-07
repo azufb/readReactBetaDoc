@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 
+type SampleObjType = {
+    firstName: string;
+    lastName: string;
+    age: number;
+};
+
 const StateHooks = () => {
     const [age, setAge] = useState<number>(24);
     const [name, setName] = useState<string>('名無し');
     const [inputName, setInputName] = useState<string>('');
+    const [sampleObj, setSampleObj] = useState<SampleObjType>({
+        firstName: 'Hanako',
+        lastName: 'Yamada',
+        age: 24
+    });
 
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputName(e.target.value);
@@ -19,7 +30,22 @@ const StateHooks = () => {
 
     const decrement = () => {
         setAge(currentAge => currentAge - 1);
-    }
+    };
+
+    const changeLastNameFunc = () => {
+        // スプレッド構文を使い、更新したいプロパティのみ更新する。
+        setSampleObj({
+            ...sampleObj,
+            lastName: 'Okamoto'
+        });
+    };
+
+    const changeAgeFunc = () => {
+        setSampleObj({
+            ...sampleObj,
+            age: 20
+        });
+    };
 
     return (
         <div>
@@ -42,6 +68,18 @@ const StateHooks = () => {
                     <div>
                         <button onClick={increment}>1歳足す</button>
                         <button onClick={decrement}>1歳引く</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label>サンプルオブジェクト：</label>
+                    <p>{sampleObj.firstName}</p>
+                    <p>{sampleObj.lastName}</p>
+                    <p>{sampleObj.age}歳</p>
+
+                    <div>
+                        <button onClick={changeLastNameFunc}>苗字を「岡本」に変える</button>
+                        <button onClick={changeAgeFunc}>20歳に若返る</button>
                     </div>
                 </div>
             </div>
