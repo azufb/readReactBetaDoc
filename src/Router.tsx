@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import HooksHome from "./components/hooks/HooksHome";
-import StateHooks from "./components/hooks/StateHooks";
+import StateHooks from "./components/hooks/stateHooks/StateHooks";
 
 const Router = () => {
     return (
