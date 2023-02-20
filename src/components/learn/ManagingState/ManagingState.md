@@ -66,3 +66,7 @@ Reducerを使ったstate更新は、stateに値をセットしてReactに何を�
 コンポーネントとreducerを関連付けるためには、useReducerフックを利用する。
 
 Reducerはstate更新関数と同じく、純粋関数とする。また、それぞれのactionは、1つのユーザのインタラクションを示す。
+
+## Passing Data Deeply with Context
+大抵、子コンポーネントに情報を渡すときは、propsを通して渡すが、間に沢山のコンポーネントに渡していく必要があったり、沢山のコンポーネントが同じ情報を必要としている場合に、propsが冗長になったり不便になったりする。Contextは、親コンポーネントにどのコンポーネントでも同じ情報が利用できるようにする。
+contextを利用している場合、子コンポーネントにおいて、propsから受け取るわけではなく、useContextフックを使用して値を得る。contextに値を渡したい親コンポーネントでは、contextのProviderを設置するのを忘れない。
